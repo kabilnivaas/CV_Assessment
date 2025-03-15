@@ -1,110 +1,75 @@
-
-### CV_Assessment  
-A Computer Vision assessment project that trains a deep learning model for image classification and serves predictions using a FastAPI-based REST API. The application supports image uploads, performs inference using a trained model, and is containerized with Docker.
+Here’s a detailed and well-structured **README.md** that explains your current progress while making it engaging and easy to understand:  
 
 ---
 
-## Features 
-✅ Train a CNN-based model using **PyTorch**  
-✅ Save and load the trained model  
-✅ Serve predictions via **FastAPI**  
-✅ Implement basic authentication for API access  
-✅ Test the API with **Postman** or **CURL**  
-✅ Deploy using **Docker**  
+# **CV_Assessment**  
+
+A **deep learning-based image classification** project using **PyTorch**. This repository contains code for training a neural network model, saving the trained model, and preparing for future deployment via a REST API.  
+
+🚀 **Current Progress:** Model training completed!  
+🔜 **Next Steps:** Integrating a FastAPI-based REST API for making predictions.  
 
 ---
 
-## **Setup Instructions**  
+## **📌 Project Overview**  
 
-### **1. Clone the Repository**  
+This project focuses on **image classification** using **deep learning**. The main components include:  
+
+✅ **Model Training**: Built a classification model using PyTorch and trained it on **FashionMNIST** and **CIFAR-10** datasets.  
+✅ **Saving the Model**: After training, the model is saved as `fast_model.pth`.  
+🛠 **Next Steps**: REST API development with **FastAPI**, basic authentication, and deployment using **Docker**.  
+
+---
+
+## **🚀 How to Set Up the Project**  
+
+### **1️⃣ Clone the Repository**  
+First, download the project by cloning this GitHub repository:  
 ```bash
 git clone https://github.com/kabilnivaas/CV_Assessment.git
 cd CV_Assessment
 ```
 
-### **2. Install Dependencies**  
+### **2️⃣ Install Required Dependencies**  
+Make sure you have **Python 3.7+** installed. Then, install the required packages using:  
 ```bash
 pip install -r requirements.txt
 ```
+This will install essential libraries like **PyTorch, torchvision, and FastAPI** (for future REST API development).  
 
-### **3. Train the Model**  
-Run the training script to train and save the model:  
+### **3️⃣ Train the Model**  
+To train the model, run:  
 ```bash
 python train.py
 ```
-This will save the model as `fast_model.pth`.
-
-### **4. Start the FastAPI Server**  
-```bash
-uvicorn main:app --host 0.0.0.0 --port 8000 --reload
-```
-The API will be available at:  
-🔗 `http://127.0.0.1:8000`
+This will:  
+✔ Train a deep learning model using **PyTorch**  
+✔ Save the trained model as **`fast_model.pth`**  
 
 ---
 
-## **API Usage**  
+## **🛠 Future Plans & Improvements**  
 
-### **1. Predict an Image**
-#### **Endpoint:** `/predict`
-- **Method:** `POST`
-- **Headers:** `Content-Type: multipart/form-data`
-- **Authentication:** API key (`api_key=secretkey123`)
-- **Body:** Upload an image file  
+Now that the model is trained, the next steps include:  
 
-#### **Example Request (CURL)**  
-```bash
-curl -X 'POST' \
-  'http://127.0.0.1:8000/predict?api_key=secretkey123' \
-  -H 'accept: application/json' \
-  -H 'Content-Type: multipart/form-data' \
-  -F 'file=@image.png'
-```
-
-#### **Example Response**
-```json
-{
-  "class": "cat",
-  "confidence": 0.92
-}
-```
+🔹 **Integrating FastAPI** – To create an API endpoint (`/predict`) that allows users to upload an image and get predictions from the trained model.  
+🔹 **Basic Authentication** – Adding API key-based authentication for security.  
+🔹 **Testing with Postman/CURL** – Ensuring the API works correctly before deployment.  
+🔹 **Dockerization** – Packaging the project into a Docker container for easy deployment.  
 
 ---
 
-## **Docker Deployment**  
-### **1. Build the Docker Image**
-```bash
-docker build -t cv_assessment .
-```
+## **👤 Author & Contributions**  
 
-### **2. Run the Docker Container**
-```bash
-docker run -p 8000:8000 cv_assessment
-```
-The API will be accessible at `http://localhost:8000`.
+👨‍💻 **Kabil Nivaas** – Working on model training, API development, and deployment.  
+🤝 Contributions are welcome! Feel free to **fork** the repo and submit pull requests.  
 
 ---
 
-## **Testing with Ngrok** *(For Google Colab or Cloud VM)*
-```python
-!pip install pyngrok
-from pyngrok import ngrok
+## **📜 License**  
 
-ngrok_tunnel = ngrok.connect(8000)
-print("Public URL:", ngrok_tunnel.public_url)
-```
-Use the **Ngrok URL** in API requests instead of `127.0.0.1:8000`.
+This project is licensed under the **MIT License**. Feel free to use and modify it as needed!  
 
 ---
 
-## **Contributors**  
-👤 **Kabil Nivaas**  
-
----
-
-## **License**  
-This project is licensed under the **MIT License**.
-
----
-
-Let me know if you need modifications! 🚀
+Let me know if you’d like any changes! 🚀
